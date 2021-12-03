@@ -32,7 +32,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo '${{ toJSON(github.event.inputs) }}'
+        run: echo "$INPUTS"
+        env:
+          INPUTS: ${{ toJSON(github.event.inputs) }}
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
